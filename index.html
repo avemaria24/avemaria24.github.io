@@ -9,6 +9,7 @@
 <body>
    <script src="https://smartpoint.lfopenlab.top/wecode/docs/jsapi/2.0.1/hwh5-cloudonline.js"></script>
   <img src = '20190321-174410(eSpace).png'>
+   <script>
   HWH5.config({
   appId: '20190902091859217', // 应用的client_id
   timestamp: '1562132124954', // 与生成签名一致的时间戳
@@ -33,6 +34,7 @@ HWH5.ready(() => {
 HWH5.error(err => {
   console.log('鉴权失败---', err);
 });
+     </script>
 <script src="https://wechatfe.github.io/vconsole/lib/vconsole.min.js?v=3.2.0"></script>
   <script>window.vConsole = new window.VConsole();</script>
     
