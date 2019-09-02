@@ -9,6 +9,42 @@
 <body>
    <script src="https://smartpoint.lfopenlab.top/wecode/docs/jsapi/2.0.1/hwh5-cloudonline.js"></script>
   <img src = '20190321-174410(eSpace).png'>
+    <button id = "record">测试权限<button>
+        
+       <script> 
+        $('#record').on('click', function () {
+             HWH5.config({
+  appId: '20190902091859217', // 应用的client_id
+  timestamp: '1562132124954', // 与生成签名一致的时间戳
+  noncestr: '2019-04-09', // 服务端使用的随机串
+  signature: '837bf0bb748c416ba1eda8695b5e67abe46a0239e86259f91161e477552669d9', // 签名信息
+  jsApiList: ['getUserInfo', 'selectContacts','getLocation']
+})
+
+/* 如果鉴权成功，会执行ready方法，把需要在页面加载时调用的相关接口放在ready中确保执行。
+需要用户触发时才调用的接口，则直接调用，不需要放在ready函数中。*/
+HWH5.ready(() => {
+  console.log('鉴权成功---');
+  HWH5.getLocation().then(data => {
+  console.log(data);
+}).catch(error => {
+  console.log('获取位置信息异常', error);
+});
+  
+});
+
+// 如果鉴权失败，则调用error方法
+HWH5.error(err => {
+  console.log('鉴权失败---', err);
+});
+            
+  
+});
+           </script>
+        
+        
+        
+        
    <script>
   HWH5.config({
   appId: '20190902091859217', // 应用的client_id
